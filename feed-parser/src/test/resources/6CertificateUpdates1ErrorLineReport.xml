@@ -1,0 +1,4 @@
+<PriceReport numOfCertificates="2">
+	<Certificate isin="DE1234567896" numOfUpdates="3" avgBidPrice="101.33" avgAskPrice="103.55"/>
+	<Certificate isin="DE9876543216" numOfUpdates="2" avgBidPrice="152.61" avgAskPrice="155.88"/>
+</PriceReport>

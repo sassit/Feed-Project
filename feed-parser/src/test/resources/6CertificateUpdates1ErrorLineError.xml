@@ -1,0 +1,6 @@
+<ExceptionReport numOfExceptions="1">
+	<Details
+		feedLine="1352122397178,invalidIsin,EUR,152.76,2000,155.68,2000"
+		exception="invalid isin"
+	/>
+</ExceptionReport>
