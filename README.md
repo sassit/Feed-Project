@@ -45,10 +45,17 @@ After trying to solve it non multithreaded by writing it to a bytebuffer per thr
 
 <h2>Open issues</h2>
 
-Given the constraints and looking at the multithreaded file writer constraint to write/parse only after generation/parsing of the data, it is still open if there is not a solution without usage of locking, as mentioned, by partioning the writes per thread to dedicated byte buffers and merging them afterwards.
-This has been attempted but failed on the truncating issue resulting out of it, the bytebuffers could not be merged into a contiguous one and the resulting file size reflecting the actual content size and not the merged buffer size.
-
 Given the price format constraints the space of numbers is limited to 100000, which should not be a problem given the other properties of the update to make it random, but the issue still is that around less than 10 updates of one million are not unique, in that case additional updates should be generated in order to generate the specified amount, this boils down to using a set collecting the updates which is on purpose as to not collect duplicates.
+
+<h2>Closed issues</h2>
+
+<del>Given the constraints and looking at the multithreaded file writer constraint to write/parse only after generation/parsing of the data, it is still open if there is not a solution without usage of locking, as mentioned, by partioning the writes per thread to dedicated byte buffers and merging them afterwards.
+This has been attempted but failed on the fragmentation and afterwards the truncating of the file issue resulting out of it, the bytebuffers could not be merged into a contiguous one and the resulting file size reflecting the actual content size and not the merged buffer size.</del>
+
+Another attempt has shown that writing it to dedicated buffers per thread the merge operation (by writing into the filechannel from each allocated bytebuffer) the overhead of the operation results in a 50% lower performance in terms of processing time.
+
+The main part of the attempt is shown here:
+https://gist.github.com/4517191
 
 <h2>Running it</h2>
 
