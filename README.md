@@ -45,6 +45,8 @@ After trying to solve it non multithreaded by writing it to a bytebuffer per thr
 
 <h2>Open issues</h2>
 
+According to a feedback it seems that on a windows box the run was not succesful, so I am going to install a virtual box on my mac and try to reproduce the issues and obviously fix them.
+
 Given the price format constraints the space of numbers is limited to 100000, which should not be a problem given the other properties of the update to make it random, but the issue still is that around less than 10 updates of one million are not unique, in that case additional updates should be generated in order to generate the specified amount, this boils down to using a set collecting the updates which is on purpose as to not collect duplicates.
 
 <h2>Closed issues</h2>
